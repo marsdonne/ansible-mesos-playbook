@@ -1,0 +1,44 @@
+1、安装Ansible
+
+# Ubuntu Server 14.04 LTS需安装git
+$ sudo apt-get install git
+
+# 下载https://github.com/marsdonne/ansible-mesos-playbook并复制到主目录
+$ git clone git://github.com/marsdonne/ansible-mesos-playbook.git
+$ cd ansible-mesos-playbook
+$ cp * ../
+
+$ sudo apt-get install software-properties-common
+$ sudo apt-add-repository ppa:ansible/ansible
+$ sudo apt-get update
+$ sudo apt-get install ansible
+
+2、安装librarian-ansible
+
+$ sudo apt-get install ruby
+------------------------------------------------------------------------------
+# （ruby > 0.91）switch gem server from 'https://rubygems.org' to 'http://rubygems.org'(应对GFW隔离)
+$ gem sources --remove https://rubygems.org/
+$ gem sources -a http://rubygems.org/
+------------------------------------------------------------------------------
+$ sudo gem install librarian-ansible
+$ librarian-ansible install
+
+3、准备配置文件
+
+cp hosts.sample hosts
+# update the 'mesos_masters' and 'mesos_slave' groups
+
+cp ansible.cfg.sample ansible.cfg
+# ensure 'librarian_roles' is in the ansible path
+
+# 设置ansible日志(可选)
+$ sudo nano ansible.cfg #add line 'log_path=ansible.log'
+
+# When "Using a SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this.  Please add this host's fingerprint to your known_hosts file to manage this host."
+$ sudo nano ansible.cfg #add line 'host_key_checking = False'
+
+
+4、执行 ansible-playbook playbook.yml
+
+$ ansible-playbook playbook.yml -K --ask-pass
