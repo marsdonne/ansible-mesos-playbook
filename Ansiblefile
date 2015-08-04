@@ -4,14 +4,14 @@
 site "https://galaxy.ansible.com/api/v1"
 
 role "ansible-docker",
-  github: "mhamrah/ansible-docker"
+  github: "marsdonne/ansible-docker"
 role "ansible-java8",
-  github: "mhamrah/ansible-java8"
+  github: "marsdonne/ansible-java8"
 role "ansible-zookeeper",
-  github: "mhamrah/ansible-zookeeper"
+  github: "marsdonne/ansible-zookeeper"
 role "ansible-marathon",
-  github: "AnsibleShipyard/ansible-marathon"
+  github: "marsdonne/ansible-marathon"
 role "ansible-mesos",
-  github: "mhamrah/ansible-mesos"
+  github: "marsdonne/ansible-mesos"
 role "ansible-consul",
-  github: "mhamrah/ansible-consul"
+  github: "marsdonne/ansible-consul"
